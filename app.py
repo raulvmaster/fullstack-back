@@ -1,3 +1,5 @@
+
+""" Aplicacion persistencia """
 #importamos de flask, Flask, request y redirect
 from flask import Flask, request, redirect
 
@@ -12,11 +14,12 @@ app = Flask(__name__)
 
 #se implementa el metodo pizza que recibiria de la petición el nombre y el apellido
 def pizza():
+    """ Aplicacion persistencia función que guarda los datos del pedido """
     nombre = request.form.get("nombre")
     apellido = request.form.get("apellido")
     #lo imprime en consola
     print ('Nombre: '+nombre)
     print ('Apellido: '+apellido)
-    #lo guarda en un fichero pedidos.txt de guardar pedido 
+    #lo guarda en un fichero pedidos.txt de guardar pedido
     guardar_pedido(nombre, apellido)
     return redirect("http://localhost/actividad_20221211/apache/solicita_pedido.html", code=302)
